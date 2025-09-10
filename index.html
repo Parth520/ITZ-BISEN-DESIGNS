@@ -1,0 +1,943 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ITZ BISEN DESIGNS | Professional Web & Design Services</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #0f0f23, #1a1a2e, #16213e);
+            color: #e94560;
+            overflow-x: hidden;
+            line-height: 1.6;
+        }
+        /* Navigation */
+        
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            padding: 1rem 5%;
+            background: rgba(15, 15, 35, 0.95);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            transition: all 0.3s ease;
+        }
+        
+        nav.scrolled {
+            background: rgba(15, 15, 35, 0.98);
+            box-shadow: 0 2px 20px rgba(233, 69, 96, 0.1);
+        }
+        
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .logo {
+            font-size: 1.8rem;
+            font-weight: bold;
+            background: linear-gradient(45deg, #e94560, #f27121);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+        
+        .nav-links a {
+            color: #e94560;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+        
+        .nav-links a:hover {
+            color: #f27121;
+        }
+        
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -5px;
+            left: 0;
+            background: linear-gradient(45deg, #e94560, #f27121);
+            transition: width 0.3s ease;
+        }
+        
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+        /* Hero Section */
+        
+        .hero {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero::before {
+            content: '';
+            position: absolute;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(233, 69, 96, 0.1), transparent);
+            animation: rotate 20s linear infinite;
+            z-index: -1;
+        }
+        
+        @keyframes rotate {
+            0% {
+                transform: rotate(0deg);
+            }
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+        
+        .hero-content {
+            max-width: 800px;
+            padding: 2rem;
+            animation: fadeInUp 1s ease;
+        }
+        
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .hero h1 {
+            font-size: 4rem;
+            margin-bottom: 1rem;
+            background: linear-gradient(45deg, #e94560, #f27121);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: glow 2s ease-in-out infinite alternate;
+        }
+        
+        @keyframes glow {
+            from {
+                filter: drop-shadow(0 0 5px rgba(233, 69, 96, 0.5));
+            }
+            to {
+                filter: drop-shadow(0 0 20px rgba(233, 69, 96, 0.8));
+            }
+        }
+        
+        .hero p {
+            font-size: 1.3rem;
+            color: #c5c6c7;
+            margin-bottom: 2rem;
+        }
+        
+        .cta-button {
+            display: inline-block;
+            padding: 1rem 2rem;
+            background: linear-gradient(45deg, #e94560, #f27121);
+            color: white;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(233, 69, 96, 0.3);
+        }
+        
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(233, 69, 96, 0.5);
+        }
+        /* Services Section */
+        
+        .services {
+            padding: 5rem 5%;
+            background: rgba(26, 26, 46, 0.3);
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .section-title {
+            text-align: center;
+            font-size: 3rem;
+            margin-bottom: 3rem;
+            background: linear-gradient(45deg, #e94560, #f27121);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+        
+        .service-card {
+            background: rgba(22, 33, 62, 0.8);
+            padding: 2rem;
+            border-radius: 15px;
+            text-align: center;
+            transition: all 0.3s ease;
+            border: 1px solid rgba(233, 69, 96, 0.1);
+            backdrop-filter: blur(10px);
+        }
+        
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 35px rgba(233, 69, 96, 0.2);
+            border-color: rgba(233, 69, 96, 0.5);
+        }
+        
+        .service-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            color: #f27121;
+        }
+        
+        .service-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: #e94560;
+        }
+        
+        .service-card p {
+            color: #c5c6c7;
+        }
+        /* About Section */
+        
+        .about {
+            padding: 5rem 5%;
+            background: rgba(15, 15, 35, 0.5);
+        }
+        
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 3rem;
+            align-items: center;
+        }
+        
+        .about-image {
+            text-align: center;
+        }
+        
+        .profile-pic {
+            width: 250px;
+            height: 250px;
+            border-radius: 50%;
+            background: linear-gradient(45deg, #e94560, #f27121);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 4rem;
+            color: white;
+            margin: 0 auto;
+            box-shadow: 0 0 50px rgba(233, 69, 96, 0.3);
+        }
+        
+        .about-text h3 {
+            font-size: 2rem;
+            color: #e94560;
+            margin-bottom: 1rem;
+        }
+        
+        .about-text p {
+            color: #c5c6c7;
+            margin-bottom: 1rem;
+            font-size: 1.1rem;
+        }
+        /* Pricing Section */
+        
+        .pricing {
+            padding: 5rem 5%;
+            background: rgba(26, 26, 46, 0.3);
+        }
+        
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+        
+        .pricing-card {
+            background: rgba(22, 33, 62, 0.8);
+            padding: 2rem;
+            border-radius: 15px;
+            text-align: center;
+            border: 1px solid rgba(233, 69, 96, 0.1);
+            transition: all 0.3s ease;
+            backdrop-filter: blur(10px);
+        }
+        
+        .pricing-card:hover {
+            transform: scale(1.05);
+            border-color: rgba(233, 69, 96, 0.5);
+            box-shadow: 0 20px 40px rgba(233, 69, 96, 0.2);
+        }
+        
+        .pricing-card.featured {
+            border-color: #e94560;
+            box-shadow: 0 0 30px rgba(233, 69, 96, 0.3);
+        }
+        
+        .price {
+            font-size: 2.5rem;
+            color: #f27121;
+            font-weight: bold;
+            margin-bottom: 1rem;
+        }
+        
+        .price-list {
+            list-style: none;
+            margin-bottom: 2rem;
+        }
+        
+        .price-list li {
+            color: #c5c6c7;
+            margin-bottom: 0.5rem;
+            padding: 0.5rem 0;
+            border-bottom: 1px solid rgba(233, 69, 96, 0.1);
+        }
+        /* Contact Section */
+        
+        .contact {
+            padding: 5rem 5%;
+            background: rgba(15, 15, 35, 0.5);
+        }
+        
+        .contact-form {
+            max-width: 600px;
+            margin: 0 auto;
+            background: rgba(22, 33, 62, 0.8);
+            padding: 2rem;
+            border-radius: 15px;
+            backdrop-filter: blur(10px);
+        }
+        
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            color: #e94560;
+        }
+        
+        .form-group input,
+        .form-group textarea,
+        .form-group select {
+            width: 100%;
+            padding: 1rem;
+            background: rgba(15, 15, 35, 0.7);
+            border: 1px solid rgba(233, 69, 96, 0.3);
+            border-radius: 8px;
+            color: #c5c6c7;
+            font-size: 1rem;
+        }
+        
+        .form-group input:focus,
+        .form-group textarea:focus,
+        .form-group select:focus {
+            outline: none;
+            border-color: #e94560;
+            box-shadow: 0 0 10px rgba(233, 69, 96, 0.3);
+        }
+        
+        .submit-btn {
+            width: 100%;
+            padding: 1rem;
+            background: linear-gradient(45deg, #e94560, #f27121);
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 1.1rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .submit-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(233, 69, 96, 0.4);
+        }
+        /* Footer */
+        
+        footer {
+            background: rgba(15, 15, 35, 0.9);
+            padding: 2rem 5%;
+            text-align: center;
+            border-top: 1px solid rgba(233, 69, 96, 0.2);
+        }
+        /* Responsive Design */
+        
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            .section-title {
+                font-size: 2rem;
+            }
+            .about-content {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+            .services-grid,
+            .pricing-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+        /* Scroll animations */
+        
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.6s ease;
+        }
+        
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        /* Modal styles */
+        
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 2000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(15, 15, 35, 0.85);
+            backdrop-filter: blur(6px);
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .modal-content {
+            background: rgba(22, 33, 62, 0.95);
+            padding: 2rem;
+            border-radius: 15px;
+            width: 90%;
+            max-width: 400px;
+            text-align: center;
+            position: relative;
+            border: 1px solid rgba(233, 69, 96, 0.3);
+        }
+        
+        .modal-content h2 {
+            margin-bottom: 1rem;
+            color: #e94560;
+        }
+        
+        .close {
+            position: absolute;
+            right: 15px;
+            top: 10px;
+            font-size: 1.5rem;
+            color: #f27121;
+            cursor: pointer;
+        }
+        
+        footer {
+            margin-top: 3rem;
+            background: #0f3460;
+            padding: 2.5rem 1rem;
+            border-top: 3px solid #e94560;
+            border-radius: 18px 18px 0 0;
+            box-shadow: 0 -6px 18px rgba(0, 0, 0, 0.5);
+            text-align: center;
+        }
+        
+        .footer-container {
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            gap: 3rem;
+            flex-wrap: wrap;
+            margin-bottom: 1.5rem;
+        }
+        
+        .footer-box h3 {
+            color: #e94560;
+            margin-bottom: 0.8rem;
+            font-size: 1.1rem;
+            border-bottom: 1px solid #e94560;
+            display: inline-block;
+            padding-bottom: 4px;
+        }
+        
+        .footer-box p,
+        .footer-box a {
+            color: #ddd;
+            font-size: 0.95rem;
+            transition: all 0.3s ease;
+        }
+        
+        .footer-box a:hover {
+            color: #ff577f;
+            text-shadow: 0 0 10px #e94560;
+        }
+        /* Instagram button */
+        
+        .social-btn {
+            display: inline-flex;
+            justify-content: center;
+            align-items: center;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: #e94560;
+            transition: all 0.3s ease;
+            box-shadow: 0 0 10px rgba(233, 69, 96, 0.5);
+        }
+        
+        .social-btn:hover {
+            background: #ff577f;
+            transform: scale(1.15) rotate(8deg);
+            box-shadow: 0 0 15px #e94560, 0 0 25px #ff577f;
+        }
+        
+        .copy {
+            font-size: 0.85rem;
+            color: #aaa;
+            margin-top: 1rem;
+            letter-spacing: 0.5px;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Navigation -->
+    <nav id="navbar">
+        <div class="nav-container">
+            <div class="logo">ITZ BISEN</div>
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#pricing">Pricing</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <h1>ITZ BISEN DESIGNS</h1>
+            <p>Professional Web Design, 3D Animation & Digital Solutions</p>
+            <p>Crafting Digital Excellence with Parth Singh Bisen</p>
+            <a href="#contact" class="cta-button">Get Started</a>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="services">
+        <div class="container">
+            <h2 class="section-title fade-in">Our Services</h2>
+            <div class="services-grid">
+                <div class="service-card fade-in">
+                    <div class="service-icon">🎨</div>
+                    <h3>Web Design</h3>
+                    <p>Modern, responsive websites that captivate your audience and drive results. Custom designs tailored to your brand.</p>
+                </div>
+                <div class="service-card fade-in">
+                    <div class="service-icon">📊</div>
+                    <h3>Data Entry</h3>
+                    <p>Accurate and efficient data entry services to streamline your business operations and maintain data integrity.</p>
+                </div>
+                <div class="service-card fade-in">
+                    <div class="service-icon">🎬</div>
+                    <h3>3D Animation</h3>
+                    <p>Stunning 3D animations and visual effects that bring your ideas to life with professional quality.</p>
+                </div>
+                <div class="service-card fade-in">
+                    <div class="service-icon">💼</div>
+                    <h3>Portfolio Websites</h3>
+                    <p>Showcase your work with beautiful, professional portfolio websites that make a lasting impression.</p>
+                </div>
+                <div class="service-card fade-in">
+                    <div class="service-icon">📱</div>
+                    <h3>UI/UX Design</h3>
+                    <p>User-centered design solutions that create intuitive and engaging digital experiences.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about">
+        <div class="container">
+            <h2 class="section-title fade-in">About Me</h2>
+            <div class="about-content fade-in">
+                <div class="about-image">
+                    <div class="profile-pic">PSB</div>
+                </div>
+                <div class="about-text">
+                    <h3>Parth Singh Bisen</h3>
+                    <p>I'm a passionate digital designer and developer with expertise in creating stunning web experiences, 3D animations, and user-centered designs. With ITZ BISEN DESIGNS, I bring creativity and technical excellence together to deliver
+                        solutions that exceed expectations.</p>
+                    <p>My journey in digital design has equipped me with the skills to handle everything from simple data entry tasks to complex web applications and immersive 3D animations. I believe in the power of good design to transform businesses and
+                        create meaningful connections with audiences.</p>
+                    <p>When you work with ITZ BISEN DESIGNS, you're not just getting a service provider – you're getting a creative partner dedicated to bringing your vision to life.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Portfolio Section -->
+    <section id="portfolio" class="services">
+        <div class="container">
+            <h2 class="section-title fade-in">Portfolio</h2>
+            <div class="services-grid">
+                <a href="https://parth520.github.io/Deep-Blue-water/">
+                    <div class="service-card fade-in">
+                        <h3>Deep Blue Water</h3>
+                        <p>Deep Blue Water is an educational website dedicated to exploring the rich history and fascinating facts about the world’s oceans and seas. </p>
+                    </div>
+                </a>
+                <a href="https://bodymasscalculator123.netlify.app/">
+                    <div class="service-card fade-in">
+                        <h3>BMI Calculator</h3>
+                        <p>A Website that calculates BMI</p>
+                    </div>
+                </a>
+                <a href="https://parth520.github.io/Toddler-s-Care/">
+                    <div class="service-card fade-in">
+                        <h3>Toddler care</h3>
+                        <p>A website to provide parents with toddler products across the internet which are affordable and quality oriented.</p>
+                    </div>
+                </a>
+                <a href="https://parth520.github.io/Portfolio/homepage.html?">
+                    <div class="service-card fade-in">
+                        <h3>Personal Portfolio</h3>
+                        <p>Clean and elegant portfolio design for a creative professional.</p>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <section id="testimonials" class="about">
+        <div class="container">
+            <h2 class="section-title fade-in">What Clients Say</h2>
+            <div class="services-grid">
+                <div class="service-card fade-in">
+                    <p>"Itz Bisen designs does amazing work with animations and VFX. I really liked their creative edits, especially the cinematic style and Minecraft animations. Easy to work with and very professional. Definitely recommend them for anyone
+                        looking for unique and creative video projects"</p>
+                    <h4>- Shlok Jain</h4>
+                </div>
+                <div class="service-card fade-in">
+                    <p>"With a very fine tuned UI, it's very easy go through and provided the services, it's easy to connect thanks to the design as well."</p>
+                    <h4>- Shaswat Kumar</h4>
+                </div>
+                <div class="service-card fade-in">
+                    <p>"The website has a really nice color composition and a clean texture, which makes it visually appealing. The UI/UX feels decent, but there’s still room to make it more smooth and user-friendly. Adding a bit more creativity in design
+                        elements and interactions would take it to the next level. Overall, it’s a solid foundation with good potential."</p>
+                    <h4>- Jigyashu Saxena</h4>
+                </div>
+                <div class="service-card fade-in">
+                    <p>"This website is an outstanding platform with a clean design, smooth navigation, and valuable content. It is fast, reliable, and highly professional, making the user experience excellent."</p>
+                    <h4>- Anupam Awasthi</h4>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Blog / Insights Section -->
+    <section id="blog" class="about">
+        <div class="container">
+            <h2 class="section-title fade-in">Insights & Tips</h2>
+            <div class="services-grid">
+                <a href="./blog on trend.html">
+                    <div class="service-card fade-in">
+                        <h3>Top 5 Web Design Trends for 2025</h3>
+                        <p>Discover what’s shaping the future of web design and how to stay ahead.</p>
+                    </div>
+                </a>
+                <a href="./why ui ux matter.html">
+                    <div class="service-card fade-in">
+                        <h3>Why UI/UX Matters</h3>
+                        <p>A great design isn’t just about looks — it’s about user experience and results.</p>
+                    </div>
+                </a>
+                <a href="./3d animation in marketting.html">
+                    <div class="service-card fade-in">
+                        <h3>3D Animation in Marketing</h3>
+                        <p>Learn how businesses use 3D visuals to increase engagement and sales.</p>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </section>
+
+
+
+
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <h2 class="section-title fade-in">Get In Touch</h2>
+            <form class="contact-form fade-in" id="contactForm" action="https://api.web3forms.com/submit" method="POST">
+                <input type="hidden" name="access_key" value="74136384-973c-4482-baae-b67f2ca994c5">
+                <div class="form-group">
+                    <label for="name">Name</label>
+                    <input type="text" id="name" name="name" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="service">Service Needed</label>
+                    <select id="service" name="service" required>
+                        <option value="">Select a service</option>
+                        <option value="web-design">Web Design</option>
+                        <option value="data-entry">Data Entry</option>
+                        <option value="3d-animation">3D Animation</option>
+                        <option value="portfolio">Portfolio Website</option>
+                        <option value="ui-ux">UI/UX Design</option>
+                        <option value="custom">Custom Project</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="budget">Budget Range</label>
+                    <select id="budget" name="budget">
+                        <option value="">Select budget range</option>
+                        <option value="under-15k">Under ₹15,000</option>
+                        <option value="15k-35k">₹15,000 - ₹35,000</option>
+                        <option value="35k-60k">₹35,000 - ₹60,000</option>
+                        <option value="above-60k">Above ₹60,000</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="message">Project Details</label>
+                    <textarea id="message" name="message" rows="5" placeholder="Tell me about your project requirements..." required></textarea>
+                </div>
+                <button type="submit" class="submit-btn">Send Message</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Footer -->
+
+
+    <footer>
+        <div class="footer-container">
+
+            <!-- Contact Section -->
+            <div class="footer-box">
+                <h3>📞 Contact</h3>
+                <p><a href="https://wa.me/917067324395" target="_blank">+91 7067324395</a></p>
+            </div>
+
+            <!-- Social Section -->
+            <div class="footer-box">
+                <h3>🌐 Social</h3>
+                <a href="https://www.instagram.com/parth.bisen_2003?igsh=MXZ3cmF6MjdpZ3Yzbw==" target="_blank" class="social-btn instagram">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 448 512" fill="white">
+          <path d="M224,202.66A53.34,53.34,0,1,0,277.34,256,53.38,53.38,0,0,0,224,202.66Zm124.71-41a54,54,0,0,0-30.62-30.62C297.67,124.18,224,124,224,124s-73.67.18-94.09,7A54,54,0,0,0,99.29,161.62C92.47,182,92.29,256,92.29,256s.18,73.67,7,94.09a54,54,0,0,0,30.62,30.62c20.42,6.82,94.09,7,94.09,7s73.67-.18,94.09-7a54,54,0,0,0,30.62-30.62c6.82-20.42,7-94.09,7-94.09S355.53,182,348.71,161.62ZM224,338a82,82,0,1,1,82-82A82.09,82.09,0,0,1,224,338Zm85.34-148.65a19.2,19.2,0,1,1,19.2-19.2A19.21,19.21,0,0,1,309.34,189.35Z"/>
+        </svg>
+                </a>
+            </div>
+
+            <!-- Email Section -->
+            <div class="footer-box">
+                <h3>📧 Email</h3>
+                <p><a href="mailto:parthbisen100@gmail.com">parthbisen100@gmail.com</a></p>
+            </div>
+
+        </div>
+
+        <p class="copy">© 2025 ITZ BISEN DESIGN | Designed with ❤️</p>
+    </footer>
+
+    <script>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Navbar scroll effect
+        window.addEventListener('scroll', () => {
+            const navbar = document.getElementById('navbar');
+            if (window.scrollY > 50) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
+
+        // Scroll animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.fade-in').forEach(el => {
+            observer.observe(el);
+        });
+
+
+
+        // Add some interactive effects
+        document.querySelectorAll('.service-card').forEach(card => {
+            card.addEventListener('mouseover', function() {
+                this.style.transform = 'translateY(-15px) scale(1.02)';
+            });
+
+            card.addEventListener('mouseout', function() {
+                this.style.transform = 'translateY(-10px) scale(1)';
+            });
+        });
+
+        // Typing effect for hero text
+        function typeWriter(element, text, speed = 50) {
+            let i = 0;
+            element.innerHTML = '';
+
+            function type() {
+                if (i < text.length) {
+                    element.innerHTML += text.charAt(i);
+                    i++;
+                    setTimeout(type, speed);
+                }
+            }
+            type();
+        }
+
+        // Initialize typing effect after page load
+        window.addEventListener('load', () => {
+            const heroTitle = document.querySelector('.hero h1');
+            if (heroTitle) {
+                const originalText = heroTitle.textContent;
+                typeWriter(heroTitle, originalText, 100);
+            }
+        });
+
+        // Get modal elements
+        const modal = document.getElementById("planModal");
+        const closeBtn = document.querySelector(".close");
+        const planForm = document.getElementById("planForm");
+        const planInput = document.getElementById("planInput");
+        const planTitle = document.getElementById("selectedPlan");
+        const planSuccess = document.getElementById("planSuccess");
+
+        // Open modal when clicking pricing buttons
+        document.querySelectorAll(".pricing-card .cta-button").forEach(btn => {
+            btn.addEventListener("click", function(e) {
+                e.preventDefault();
+                const planName = this.closest(".pricing-card").querySelector("h3").innerText;
+                planTitle.textContent = "Selected Plan: " + planName;
+                planInput.value = planName;
+                planForm.style.display = "block";
+                planSuccess.style.display = "none";
+                modal.style.display = "flex";
+            });
+        });
+
+        // Close modal
+        closeBtn.onclick = () => {
+            modal.style.display = "none";
+        };
+        window.onclick = (e) => {
+            if (e.target == modal) modal.style.display = "none";
+        };
+
+        // Handle form submission with AJAX (so we can show success message without redirect)
+        planForm.addEventListener("submit", async function(e) {
+            e.preventDefault();
+
+            const formData = new FormData(planForm);
+            const response = await fetch(planForm.action, {
+                method: "POST",
+                body: formData
+            });
+
+            if (response.ok) {
+                planForm.style.display = "none";
+                planSuccess.style.display = "block";
+            } else {
+                alert("❌ Something went wrong. Please try again.");
+            }
+        });
+
+
+        // Counter animation
+        function animateCounter(id, end, duration) {
+            let start = 0;
+            const element = document.getElementById(id);
+            const increment = end / (duration / 20);
+
+            const interval = setInterval(() => {
+                start += increment;
+                if (start >= end) {
+                    start = end;
+                    clearInterval(interval);
+                }
+                element.textContent = Math.floor(start) + "+";
+            }, 20);
+        }
+
+        window.addEventListener("load", () => {
+            animateCounter("counter1", 25, 2000);
+            animateCounter("counter2", 15, 2000);
+            animateCounter("counter3", 3, 2000);
+        });
+    </script>
+</body>
+
+</html>
