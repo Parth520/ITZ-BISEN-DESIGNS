@@ -4,7 +4,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ITZ BISEN DESIGNS | Professional Web & Design Services</title>
+    <title>ITZ BISEN DESIGNS |   Digital Excellence</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;900&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
         * {
             margin: 0;
@@ -12,81 +13,158 @@
             box-sizing: border-box;
         }
         
+        :root {
+            --royal-purple: #6B46C1;
+            --deep-purple: #4C1D95;
+            --light-purple: #8B5CF6;
+            --gold: #F59E0B;
+            --platinum: #E5E7EB;
+            --dark-bg: #1A0B2E;
+            --card-bg: rgba(107, 70, 193, 0.1);
+            --glass-bg: rgba(255, 255, 255, 0.05);
+        }
+        
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: linear-gradient(135deg, #0f0f23, #1a1a2e, #16213e);
-            color: #e94560;
+            font-family: 'Montserrat', sans-serif;
+            background: linear-gradient(135deg, #1A0B2E 0%, #2D1B69 25%, #4C1D95 50%, #6B46C1 75%, #8B5CF6 100%);
+            background-attachment: fixed;
+            color: #F8FAFC;
             overflow-x: hidden;
             line-height: 1.6;
         }
-        /* Navigation */
+
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: 
+                radial-gradient(circle at 20% 80%, rgba(139, 92, 246, 0.3) 0%, transparent 50%),
+                radial-gradient(circle at 80% 20%, rgba(245, 158, 11, 0.2) 0%, transparent 50%);
+            z-index: -1;
+            animation: backgroundShift 20s ease-in-out infinite alternate;
+        }
+
+        @keyframes backgroundShift {
+            0% { transform: scale(1) rotate(0deg); }
+            100% { transform: scale(1.1) rotate(2deg); }
+        }
+
+        /* Elegant scrollbar */
+        ::-webkit-scrollbar {
+            width: 12px;
+        }
         
+        ::-webkit-scrollbar-track {
+            background: var(--dark-bg);
+            border-radius: 10px;
+        }
+        
+        ::-webkit-scrollbar-thumb {
+            background: linear-gradient(45deg, var(--royal-purple), var(--gold));
+            border-radius: 10px;
+            border: 2px solid var(--dark-bg);
+        }
+        
+        ::-webkit-scrollbar-thumb:hover {
+            background: linear-gradient(45deg, var(--light-purple), var(--gold));
+        }
+        
+        /* Navigation */
         nav {
             position: fixed;
             top: 0;
             width: 100%;
-            padding: 1rem 5%;
-            background: rgba(15, 15, 35, 0.95);
-            backdrop-filter: blur(10px);
+            padding: 1.5rem 5%;
+            background: rgba(26, 11, 46, 0.95);
+            backdrop-filter: blur(20px);
+            border-bottom: 2px solid rgba(107, 70, 193, 0.3);
             z-index: 1000;
-            transition: all 0.3s ease;
+            transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
         }
         
         nav.scrolled {
-            background: rgba(15, 15, 35, 0.98);
-            box-shadow: 0 2px 20px rgba(233, 69, 96, 0.1);
+            background: rgba(26, 11, 46, 0.98);
+            box-shadow: 0 8px 40px rgba(107, 70, 193, 0.4);
+            border-bottom: 2px solid var(--gold);
         }
         
         .nav-container {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            max-width: 1200px;
+            max-width: 1400px;
             margin: 0 auto;
         }
         
         .logo {
-            font-size: 1.8rem;
-            font-weight: bold;
-            background: linear-gradient(45deg, #e94560, #f27121);
+            font-family: 'Playfair Display', serif;
+            font-size: 2.2rem;
+            font-weight: 700;
+            background: linear-gradient(45deg, var(--gold), var(--light-purple));
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
+            text-shadow: 0 0 30px rgba(245, 158, 11, 0.5);
+            position: relative;
+        }
+
+        .logo::after {
+            content: '♔';
+            position: absolute;
+            top: -10px;
+            right: -25px;
+            color: var(--gold);
+            font-size: 1rem;
+            animation: crownFloat 3s ease-in-out infinite;
+        }
+
+        @keyframes crownFloat {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-5px) rotate(5deg); }
         }
         
         .nav-links {
             display: flex;
             list-style: none;
-            gap: 2rem;
+            gap: 3rem;
         }
         
         .nav-links a {
-            color: #e94560;
+            color: var(--platinum);
             text-decoration: none;
-            transition: all 0.3s ease;
+            font-weight: 500;
+            letter-spacing: 1px;
+            transition: all 0.4s ease;
             position: relative;
+            padding: 0.5rem 0;
         }
         
         .nav-links a:hover {
-            color: #f27121;
+            color: var(--gold);
+            text-shadow: 0 0 20px rgba(245, 158, 11, 0.8);
         }
         
         .nav-links a::after {
             content: '';
             position: absolute;
             width: 0;
-            height: 2px;
-            bottom: -5px;
-            left: 0;
-            background: linear-gradient(45deg, #e94560, #f27121);
-            transition: width 0.3s ease;
+            height: 3px;
+            bottom: 0;
+            left: 50%;
+            background: linear-gradient(45deg, var(--gold), var(--light-purple));
+            transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            border-radius: 2px;
         }
         
         .nav-links a:hover::after {
             width: 100%;
+            left: 0;
         }
-        /* Hero Section */
         
+        /* Hero Section */
         .hero {
             height: 100vh;
             display: flex;
@@ -100,451 +178,805 @@
         .hero::before {
             content: '';
             position: absolute;
-            width: 200%;
-            height: 200%;
-            background: radial-gradient(circle, rgba(233, 69, 96, 0.1), transparent);
-            animation: rotate 20s linear infinite;
+            width: 300%;
+            height: 300%;
+            background: 
+                radial-gradient(circle at 30% 70%, rgba(139, 92, 246, 0.3) 0%, transparent 40%),
+                radial-gradient(circle at 70% 30%, rgba(245, 158, 11, 0.2) 0%, transparent 40%);
+            animation: heroRotate 30s linear infinite;
             z-index: -1;
         }
         
-        @keyframes rotate {
-            0% {
-                transform: rotate(0deg);
-            }
-            100% {
-                transform: rotate(360deg);
-            }
+        @keyframes heroRotate {
+            0% { transform: rotate(0deg) scale(1); }
+            100% { transform: rotate(360deg) scale(1.2); }
         }
         
         .hero-content {
-            max-width: 800px;
-            padding: 2rem;
-            animation: fadeInUp 1s ease;
+            max-width: 900px;
+            padding: 3rem;
+            animation: heroFadeInUp 1.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            position: relative;
+        }
+
+        .hero-content::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255, 255, 255, 0.05) 0%, transparent 70%);
+            z-index: -1;
+            animation: pulseGlow 4s ease-in-out infinite;
+        }
+
+        @keyframes pulseGlow {
+            0%, 100% { opacity: 0.3; transform: scale(0.8); }
+            50% { opacity: 0.8; transform: scale(1); }
         }
         
-        @keyframes fadeInUp {
+        @keyframes heroFadeInUp {
             from {
                 opacity: 0;
-                transform: translateY(30px);
+                transform: translateY(80px) scale(0.9);
             }
             to {
                 opacity: 1;
-                transform: translateY(0);
+                transform: translateY(0) scale(1);
             }
         }
         
         .hero h1 {
-            font-size: 4rem;
-            margin-bottom: 1rem;
-            background: linear-gradient(45deg, #e94560, #f27121);
+            font-family: 'Playfair Display', serif;
+            font-size: 5rem;
+            font-weight: 900;
+            margin-bottom: 1.5rem;
+            background: linear-gradient(45deg, var(--gold), var(--light-purple), var(--gold));
+            background-size: 200% 200%;
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
-            animation: glow 2s ease-in-out infinite alternate;
+            animation: royalGlow 3s ease-in-out infinite alternate, gradientShift 5s ease-in-out infinite;
+            text-shadow: 0 0 60px rgba(245, 158, 11, 0.3);
+        }
+
+        @keyframes gradientShift {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
         }
         
-        @keyframes glow {
+        @keyframes royalGlow {
             from {
-                filter: drop-shadow(0 0 5px rgba(233, 69, 96, 0.5));
+                filter: drop-shadow(0 0 20px rgba(245, 158, 11, 0.5));
             }
             to {
-                filter: drop-shadow(0 0 20px rgba(233, 69, 96, 0.8));
+                filter: drop-shadow(0 0 40px rgba(139, 92, 246, 0.8));
             }
         }
         
         .hero p {
-            font-size: 1.3rem;
-            color: #c5c6c7;
-            margin-bottom: 2rem;
+            font-size: 1.4rem;
+            color: var(--platinum);
+            margin-bottom: 1rem;
+            font-weight: 300;
+            letter-spacing: 2px;
+            opacity: 0;
+            animation: fadeInDelay 2s ease forwards;
+        }
+
+        .hero p:nth-child(2) { animation-delay: 0.5s; }
+        .hero p:nth-child(3) { animation-delay: 1s; }
+
+        @keyframes fadeInDelay {
+            to { opacity: 1; }
         }
         
         .cta-button {
             display: inline-block;
-            padding: 1rem 2rem;
-            background: linear-gradient(45deg, #e94560, #f27121);
+            padding: 1.5rem 3rem;
+            background: linear-gradient(45deg, var(--royal-purple), var(--gold));
             color: white;
             text-decoration: none;
             border-radius: 50px;
-            font-weight: bold;
-            transition: all 0.3s ease;
-            box-shadow: 0 4px 15px rgba(233, 69, 96, 0.3);
+            font-weight: 600;
+            font-size: 1.1rem;
+            letter-spacing: 1px;
+            transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            box-shadow: 
+                0 10px 30px rgba(107, 70, 193, 0.4),
+                inset 0 1px 0 rgba(255, 255, 255, 0.2);
+            position: relative;
+            overflow: hidden;
+            margin-top: 2rem;
+            animation: buttonFloat 3s ease-in-out infinite;
+        }
+
+        @keyframes buttonFloat {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-5px); }
+        }
+
+        .cta-button::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+            transition: left 0.5s;
+        }
+
+        .cta-button:hover::before {
+            left: 100%;
         }
         
         .cta-button:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 8px 25px rgba(233, 69, 96, 0.5);
+            transform: translateY(-8px) scale(1.05);
+            box-shadow: 
+                0 20px 50px rgba(107, 70, 193, 0.6),
+                0 0 40px rgba(245, 158, 11, 0.4);
         }
-        /* Services Section */
         
-        .services {
-            padding: 5rem 5%;
-            background: rgba(26, 26, 46, 0.3);
+        /* Elegant Sections */
+        .elegant-section {
+            padding: 8rem 5%;
+            position: relative;
+        }
+
+        .elegant-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: var(--glass-bg);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            z-index: -1;
         }
         
         .container {
-            max-width: 1200px;
+            max-width: 1400px;
             margin: 0 auto;
+            position: relative;
         }
         
         .section-title {
+            font-family: 'Playfair Display', serif;
             text-align: center;
-            font-size: 3rem;
-            margin-bottom: 3rem;
-            background: linear-gradient(45deg, #e94560, #f27121);
+            font-size: 4rem;
+            font-weight: 700;
+            margin-bottom: 4rem;
+            background: linear-gradient(45deg, var(--gold), var(--light-purple));
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
+            position: relative;
+            animation: titleGlow 2s ease-in-out infinite alternate;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -20px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 4px;
+            background: linear-gradient(45deg, var(--gold), var(--light-purple));
+            border-radius: 2px;
+            animation: underlineGrow 1s ease-out forwards;
+        }
+
+        @keyframes underlineGrow {
+            from { width: 0; }
+            to { width: 100px; }
+        }
+
+        @keyframes titleGlow {
+            from { text-shadow: 0 0 20px rgba(245, 158, 11, 0.5); }
+            to { text-shadow: 0 0 40px rgba(139, 92, 246, 0.8); }
         }
         
-        .services-grid {
+        /* Luxury Cards */
+        .luxury-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 3rem;
+            margin-top: 2rem;
         }
         
-        .service-card {
-            background: rgba(22, 33, 62, 0.8);
-            padding: 2rem;
-            border-radius: 15px;
+        .luxury-card {
+            background: linear-gradient(145deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.05));
+            backdrop-filter: blur(20px);
+            padding: 3rem;
+            border-radius: 25px;
             text-align: center;
-            transition: all 0.3s ease;
-            border: 1px solid rgba(233, 69, 96, 0.1);
-            backdrop-filter: blur(10px);
+            transition: all 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            border: 2px solid rgba(139, 92, 246, 0.2);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .luxury-card::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(245, 158, 11, 0.1) 0%, transparent 70%);
+            transform: scale(0);
+            transition: transform 0.6s ease;
+        }
+
+        .luxury-card:hover::before {
+            transform: scale(1);
         }
         
-        .service-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 15px 35px rgba(233, 69, 96, 0.2);
-            border-color: rgba(233, 69, 96, 0.5);
+        .luxury-card:hover {
+            transform: translateY(-20px) rotateY(5deg);
+            box-shadow: 
+                0 30px 60px rgba(107, 70, 193, 0.3),
+                0 0 50px rgba(245, 158, 11, 0.2);
+            border-color: var(--gold);
         }
         
         .service-icon {
-            font-size: 3rem;
-            margin-bottom: 1rem;
-            color: #f27121;
-            height:90px;
-            border-radius: 20%;
-            border: solid 10px;
-        }
-        
-        .service-card h3 {
-            font-size: 1.5rem;
-            margin-bottom: 1rem;
-            color: #e94560;
-        }
-        
-        .service-card p {
-            color: #c5c6c7;
-        }
-        /* About Section */
-        
-        .about {
-            padding: 5rem 5%;
-            background: rgba(15, 15, 35, 0.5);
-        }
-        
-        .about-content {
-            display: grid;
-            grid-template-columns: 1fr 2fr;
-            gap: 3rem;
-            align-items: center;
-        }
-        
-        .about-image {
-            text-align: center;
-        }
-        
-        .profile-pic {
-            width: 250px;
-            height: 250px;
+            width: 100px;
+            height: 100px;
+            margin: 0 auto 2rem;
             border-radius: 50%;
-            background: linear-gradient(45deg, #e94560, #f27121);
+            background: linear-gradient(45deg, var(--royal-purple), var(--gold));
             display: flex;
             align-items: center;
             justify-content: center;
+            font-size: 3rem;
+            color: white;
+            box-shadow: 0 15px 35px rgba(107, 70, 193, 0.4);
+            animation: iconFloat 4s ease-in-out infinite;
+        }
+
+        @keyframes iconFloat {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            33% { transform: translateY(-10px) rotate(5deg); }
+            66% { transform: translateY(5px) rotate(-3deg); }
+        }
+        
+        .luxury-card h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8rem;
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+            color: var(--gold);
+            position: relative;
+        }
+        
+        .luxury-card p {
+            color: var(--platinum);
+            font-size: 1.1rem;
+            line-height: 1.8;
+            font-weight: 300;
+        }
+
+        /* About Section */
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 5rem;
+            align-items: center;
+        }
+        
+        .profile-container {
+            text-align: center;
+            position: relative;
+        }
+
+        .profile-container::before {
+            content: '';
+            position: absolute;
+            top: -30px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 350px;
+            height: 350px;
+            border-radius: 50%;
+            background: linear-gradient(45deg, var(--royal-purple), var(--gold));
+            filter: blur(20px);
+            opacity: 0.3;
+            animation: profileGlow 4s ease-in-out infinite alternate;
+        }
+
+        @keyframes profileGlow {
+            from { transform: translateX(-50%) scale(0.9); opacity: 0.2; }
+            to { transform: translateX(-50%) scale(1.1); opacity: 0.5; }
+        }
+        
+        .profile-pic {
+            width: 300px;
+            height: 300px;
+            border-radius: 50%;
+            background: linear-gradient(45deg, var(--royal-purple), var(--gold));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: 'Playfair Display', serif;
             font-size: 4rem;
+            font-weight: 700;
             color: white;
             margin: 0 auto;
-            box-shadow: 0 0 50px rgba(233, 69, 96, 0.3);
+            box-shadow: 
+                0 0 80px rgba(107, 70, 193, 0.6),
+                inset 0 0 50px rgba(255, 255, 255, 0.1);
+            position: relative;
+            animation: profileFloat 6s ease-in-out infinite;
+        }
+
+        @keyframes profileFloat {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            33% { transform: translateY(-15px) rotate(2deg); }
+            66% { transform: translateY(10px) rotate(-1deg); }
         }
         
         .about-text h3 {
-            font-size: 2rem;
-            color: #e94560;
-            margin-bottom: 1rem;
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            color: var(--gold);
+            margin-bottom: 2rem;
+            font-weight: 600;
         }
         
         .about-text p {
-            color: #c5c6c7;
-            margin-bottom: 1rem;
+            color: var(--platinum);
+            margin-bottom: 1.5rem;
+            font-size: 1.2rem;
+            line-height: 1.8;
+            font-weight: 300;
+            opacity: 0;
+            animation: textFadeIn 1s ease forwards;
+        }
+
+        .about-text p:nth-child(2) { animation-delay: 0.2s; }
+        .about-text p:nth-child(3) { animation-delay: 0.4s; }
+        .about-text p:nth-child(4) { animation-delay: 0.6s; }
+
+        @keyframes textFadeIn {
+            to { opacity: 1; }
+        }
+
+        /* Portfolio Links */
+        .portfolio-link {
+            text-decoration: none;
+            display: block;
+            transition: transform 0.3s ease;
+        }
+
+        .portfolio-link:hover .luxury-card {
+            transform: translateY(-20px) scale(1.02);
+        }
+
+        /* Testimonials */
+        .testimonial-card {
+            background: linear-gradient(145deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.05));
+            backdrop-filter: blur(20px);
+            padding: 3rem;
+            border-radius: 25px;
+            border: 2px solid rgba(139, 92, 246, 0.2);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .testimonial-card::before {
+            content: '"';
+            position: absolute;
+            top: -10px;
+            left: 20px;
+            font-size: 8rem;
+            color: var(--gold);
+            opacity: 0.2;
+            font-family: 'Playfair Display', serif;
+        }
+
+        .testimonial-card p {
+            color: var(--platinum);
             font-size: 1.1rem;
-        }
-        /* Pricing Section */
-        
-        .pricing {
-            padding: 5rem 5%;
-            background: rgba(26, 26, 46, 0.3);
-        }
-        
-        .pricing-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-        }
-        
-        .pricing-card {
-            background: rgba(22, 33, 62, 0.8);
-            padding: 2rem;
-            border-radius: 15px;
-            text-align: center;
-            border: 1px solid rgba(233, 69, 96, 0.1);
-            transition: all 0.3s ease;
-            backdrop-filter: blur(10px);
-        }
-        
-        .pricing-card:hover {
-            transform: scale(1.05);
-            border-color: rgba(233, 69, 96, 0.5);
-            box-shadow: 0 20px 40px rgba(233, 69, 96, 0.2);
-        }
-        
-        .pricing-card.featured {
-            border-color: #e94560;
-            box-shadow: 0 0 30px rgba(233, 69, 96, 0.3);
-        }
-        
-        .price {
-            font-size: 2.5rem;
-            color: #f27121;
-            font-weight: bold;
-            margin-bottom: 1rem;
-        }
-        
-        .price-list {
-            list-style: none;
+            line-height: 1.8;
             margin-bottom: 2rem;
+            font-style: italic;
         }
-        
-        .price-list li {
-            color: #c5c6c7;
-            margin-bottom: 0.5rem;
-            padding: 0.5rem 0;
-            border-bottom: 1px solid rgba(233, 69, 96, 0.1);
+
+        .testimonial-card h4 {
+            color: var(--gold);
+            font-weight: 600;
+            text-align: right;
         }
-        /* Contact Section */
-        
-        .contact {
-            padding: 5rem 5%;
-            background: rgba(15, 15, 35, 0.5);
-        }
-        
+
+        /* Contact Form */
         .contact-form {
-            max-width: 600px;
+            max-width: 700px;
             margin: 0 auto;
-            background: rgba(22, 33, 62, 0.8);
-            padding: 2rem;
-            border-radius: 15px;
-            backdrop-filter: blur(10px);
+            background: linear-gradient(145deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.05));
+            backdrop-filter: blur(20px);
+            padding: 4rem;
+            border-radius: 30px;
+            border: 2px solid rgba(139, 92, 246, 0.3);
         }
         
         .form-group {
-            margin-bottom: 1.5rem;
+            margin-bottom: 2rem;
         }
         
         .form-group label {
             display: block;
-            margin-bottom: 0.5rem;
-            color: #e94560;
+            margin-bottom: 0.8rem;
+            color: var(--gold);
+            font-weight: 500;
+            font-size: 1.1rem;
         }
         
         .form-group input,
         .form-group textarea,
         .form-group select {
             width: 100%;
-            padding: 1rem;
-            background: rgba(15, 15, 35, 0.7);
-            border: 1px solid rgba(233, 69, 96, 0.3);
-            border-radius: 8px;
-            color: #c5c6c7;
-            font-size: 1rem;
+            padding: 1.5rem;
+            background: rgba(26, 11, 46, 0.8);
+            border: 2px solid rgba(139, 92, 246, 0.3);
+            border-radius: 15px;
+            color: var(--platinum);
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
         }
         
         .form-group input:focus,
         .form-group textarea:focus,
         .form-group select:focus {
             outline: none;
-            border-color: #e94560;
-            box-shadow: 0 0 10px rgba(233, 69, 96, 0.3);
+            border-color: var(--gold);
+            box-shadow: 0 0 20px rgba(245, 158, 11, 0.3);
+            transform: scale(1.02);
         }
         
         .submit-btn {
             width: 100%;
-            padding: 1rem;
-            background: linear-gradient(45deg, #e94560, #f27121);
+            padding: 1.5rem;
+            background: linear-gradient(45deg, var(--royal-purple), var(--gold));
             color: white;
             border: none;
-            border-radius: 8px;
-            font-size: 1.1rem;
-            font-weight: bold;
+            border-radius: 15px;
+            font-size: 1.2rem;
+            font-weight: 600;
             cursor: pointer;
-            transition: all 0.3s ease;
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .submit-btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+            transition: left 0.5s;
+        }
+
+        .submit-btn:hover::before {
+            left: 100%;
         }
         
         .submit-btn:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 8px 25px rgba(233, 69, 96, 0.4);
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(107, 70, 193, 0.5);
         }
+
         /* Footer */
-        
         footer {
-            background: rgba(15, 15, 35, 0.9);
-            padding: 2rem 5%;
-            text-align: center;
-            border-top: 1px solid rgba(233, 69, 96, 0.2);
-        }
-        /* Responsive Design */
-        
-        @media (max-width: 768px) {
-            .nav-links {
-                display: none;
-            }
-            .hero h1 {
-                font-size: 2.5rem;
-            }
-            .section-title {
-                font-size: 2rem;
-            }
-            .about-content {
-                grid-template-columns: 1fr;
-                text-align: center;
-            }
-            .services-grid,
-            .pricing-grid {
-                grid-template-columns: 1fr;
-            }
-        }
-        /* Scroll animations */
-        
-        .fade-in {
-            opacity: 0;
-            transform: translateY(30px);
-            transition: all 0.6s ease;
-        }
-        
-        .fade-in.visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
-        /* Modal styles */
-        
-        .modal {
-            display: none;
-            position: fixed;
-            z-index: 2000;
-            left: 0;
-            top: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(15, 15, 35, 0.85);
-            backdrop-filter: blur(6px);
-            justify-content: center;
-            align-items: center;
-        }
-        
-        .modal-content {
-            background: rgba(22, 33, 62, 0.95);
-            padding: 2rem;
-            border-radius: 15px;
-            width: 90%;
-            max-width: 400px;
+            background: linear-gradient(135deg, rgba(26, 11, 46, 0.95), rgba(76, 29, 149, 0.9));
+            backdrop-filter: blur(20px);
+            padding: 4rem 5% 2rem;
+            border-top: 3px solid var(--gold);
+            border-radius: 30px 30px 0 0;
+            box-shadow: 0 -10px 40px rgba(107, 70, 193, 0.3);
             text-align: center;
             position: relative;
-            border: 1px solid rgba(233, 69, 96, 0.3);
         }
-        
-        .modal-content h2 {
-            margin-bottom: 1rem;
-            color: #e94560;
-        }
-        
-        .close {
+
+        footer::before {
+            content: '';
             position: absolute;
-            right: 15px;
-            top: 10px;
-            font-size: 1.5rem;
-            color: #f27121;
-            cursor: pointer;
+            top: -2px;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(90deg, var(--gold), var(--light-purple), var(--gold));
+            animation: borderShimmer 3s ease-in-out infinite;
         }
-        
-        footer {
-            margin-top: 3rem;
-            background: #0f3460;
-            padding: 2.5rem 1rem;
-            border-top: 3px solid #e94560;
-            border-radius: 18px 18px 0 0;
-            box-shadow: 0 -6px 18px rgba(0, 0, 0, 0.5);
-            text-align: center;
+
+        @keyframes borderShimmer {
+            0%, 100% { opacity: 0.5; }
+            50% { opacity: 1; }
         }
         
         .footer-container {
             display: flex;
             justify-content: center;
             align-items: flex-start;
-            gap: 3rem;
+            gap: 4rem;
             flex-wrap: wrap;
-            margin-bottom: 1.5rem;
+            margin-bottom: 3rem;
         }
         
         .footer-box h3 {
-            color: #e94560;
-            margin-bottom: 0.8rem;
-            font-size: 1.1rem;
-            border-bottom: 1px solid #e94560;
-            display: inline-block;
-            padding-bottom: 4px;
+            color: var(--gold);
+            margin-bottom: 1.5rem;
+            font-size: 1.3rem;
+            font-family: 'Playfair Display', serif;
+            font-weight: 600;
         }
         
         .footer-box p,
         .footer-box a {
-            color: #ddd;
-            font-size: 0.95rem;
+            color: var(--platinum);
+            font-size: 1.1rem;
             transition: all 0.3s ease;
+            text-decoration: none;
         }
         
         .footer-box a:hover {
-            color: #ff577f;
-            text-shadow: 0 0 10px #e94560;
+            color: var(--gold);
+            text-shadow: 0 0 20px rgba(245, 158, 11, 0.8);
         }
-        /* Instagram button */
         
         .social-btn {
             display: inline-flex;
             justify-content: center;
             align-items: center;
-            width: 50px;
-            height: 50px;
+            width: 60px;
+            height: 60px;
             border-radius: 50%;
-            background: #e94560;
-            transition: all 0.3s ease;
-            box-shadow: 0 0 10px rgba(233, 69, 96, 0.5);
+            background: linear-gradient(45deg, var(--royal-purple), var(--gold));
+            transition: all 0.4s ease;
+            box-shadow: 0 10px 25px rgba(107, 70, 193, 0.4);
         }
         
         .social-btn:hover {
-            background: #ff577f;
-            transform: scale(1.15) rotate(8deg);
-            box-shadow: 0 0 15px #e94560, 0 0 25px #ff577f;
+            transform: scale(1.2) rotate(10deg);
+            box-shadow: 
+                0 15px 35px rgba(107, 70, 193, 0.6),
+                0 0 30px rgba(245, 158, 11, 0.5);
         }
         
         .copy {
-            font-size: 0.85rem;
-            color: #aaa;
-            margin-top: 1rem;
-            letter-spacing: 0.5px;
+            font-size: 1rem;
+            color: var(--platinum);
+            margin-top: 2rem;
+            letter-spacing: 1px;
+            opacity: 0.8;
+        }
+
+        /* Advanced Scroll Animations */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(80px) scale(0.9) rotateX(30deg);
+            transition: all 1s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            filter: blur(10px);
+        }
+        
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0) scale(1) rotateX(0deg);
+            filter: blur(0px);
+        }
+
+        .fade-in.exit {
+            opacity: 0;
+            transform: translateY(-50px) scale(0.8) rotateX(-20deg);
+            filter: blur(15px);
+        }
+
+        /* Slide animations */
+        .slide-left {
+            opacity: 0;
+            transform: translateX(-100px) rotateY(45deg);
+            transition: all 1.2s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+
+        .slide-left.visible {
+            opacity: 1;
+            transform: translateX(0) rotateY(0deg);
+        }
+
+        .slide-left.exit {
+            opacity: 0;
+            transform: translateX(-150px) rotateY(-45deg);
+        }
+
+        .slide-right {
+            opacity: 0;
+            transform: translateX(100px) rotateY(-45deg);
+            transition: all 1.2s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+
+        .slide-right.visible {
+            opacity: 1;
+            transform: translateX(0) rotateY(0deg);
+        }
+
+        .slide-right.exit {
+            opacity: 0;
+            transform: translateX(150px) rotateY(45deg);
+        }
+
+        /* Scale animations */
+        .scale-in {
+            opacity: 0;
+            transform: scale(0.5) rotate(180deg);
+            transition: all 1s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            filter: blur(20px);
+        }
+
+        .scale-in.visible {
+            opacity: 1;
+            transform: scale(1) rotate(0deg);
+            filter: blur(0px);
+        }
+
+        .scale-in.exit {
+            opacity: 0;
+            transform: scale(0.3) rotate(-180deg);
+            filter: blur(25px);
+        }
+
+        /* Flip animations */
+        .flip-in {
+            opacity: 0;
+            transform: rotateY(180deg) scale(0.8);
+            transition: all 1.2s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+
+        .flip-in.visible {
+            opacity: 1;
+            transform: rotateY(0deg) scale(1);
+        }
+
+        .flip-in.exit {
+            opacity: 0;
+            transform: rotateY(-180deg) scale(0.6);
+        }
+
+        /* Bounce animations */
+        .bounce-in {
+            opacity: 0;
+            transform: translateY(100px) scale(0.7);
+            transition: all 1.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+        }
+
+        .bounce-in.visible {
+            opacity: 1;
+            transform: translateY(0) scale(1);
+        }
+
+        .bounce-in.exit {
+            opacity: 0;
+            transform: translateY(-80px) scale(0.5);
+            transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+
+        /* Spiral animations */
+        .spiral-in {
+            opacity: 0;
+            transform: rotate(360deg) scale(0.1) translateY(100px);
+            transition: all 1.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+
+        .spiral-in.visible {
+            opacity: 1;
+            transform: rotate(0deg) scale(1) translateY(0);
+        }
+
+        .spiral-in.exit {
+            opacity: 0;
+            transform: rotate(-360deg) scale(0.1) translateY(-100px);
+        }
+
+        /* Staggered animation delays */
+        .fade-in:nth-child(1) { transition-delay: 0s; }
+        .fade-in:nth-child(2) { transition-delay: 0.1s; }
+        .fade-in:nth-child(3) { transition-delay: 0.2s; }
+        .fade-in:nth-child(4) { transition-delay: 0.3s; }
+        .fade-in:nth-child(5) { transition-delay: 0.4s; }
+        .fade-in:nth-child(6) { transition-delay: 0.5s; }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+            
+            .hero h1 {
+                font-size: 3rem;
+            }
+            
+            .section-title {
+                font-size: 2.5rem;
+            }
+            
+            .about-content {
+                grid-template-columns: 1fr;
+                text-align: center;
+                gap: 3rem;
+            }
+            
+            .luxury-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .profile-pic {
+                width: 200px;
+                height: 200px;
+                font-size: 3rem;
+            }
+
+            .footer-container {
+                gap: 2rem;
+            }
+        }
+
+        /* Enhanced animations for luxury feel */
+        .floating-elements {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: -1;
+        }
+
+        .floating-element {
+            position: absolute;
+            width: 4px;
+            height: 4px;
+            background: var(--gold);
+            border-radius: 50%;
+            animation: float 20s infinite linear;
+        }
+
+        @keyframes float {
+            0% {
+                transform: translateY(100vh) translateX(0px) rotate(0deg);
+                opacity: 0;
+            }
+            10% { opacity: 1; }
+            90% { opacity: 1; }
+            100% {
+                transform: translateY(-100vh) translateX(100px) rotate(360deg);
+                opacity: 0;
+            }
         }
     </style>
 </head>
 
 <body>
+    <!-- Floating Elements -->
+    <div class="floating-elements">
+        <div class="floating-element" style="left: 10%; animation-delay: 0s;"></div>
+        <div class="floating-element" style="left: 20%; animation-delay: 5s;"></div>
+        <div class="floating-element" style="left: 30%; animation-delay: 10s;"></div>
+        <div class="floating-element" style="left: 40%; animation-delay: 15s;"></div>
+        <div class="floating-element" style="left: 50%; animation-delay: 2s;"></div>
+        <div class="floating-element" style="left: 60%; animation-delay: 7s;"></div>
+        <div class="floating-element" style="left: 70%; animation-delay: 12s;"></div>
+        <div class="floating-element" style="left: 80%; animation-delay: 3s;"></div>
+        <div class="floating-element" style="left: 90%; animation-delay: 8s;"></div>
+    </div>
+
     <!-- Navigation -->
     <nav id="navbar">
         <div class="nav-container">
@@ -553,7 +985,8 @@
                 <li><a href="#home">Home</a></li>
                 <li><a href="#services">Services</a></li>
                 <li><a href="#about">About</a></li>
-                <li><a href="#pricing">Pricing</a></li>
+                <li><a href="#portfolio">Portfolio</a></li>
+                <li><a href="#testimonials">Testimonials</a></li>
                 <li><a href="#contact">Contact</a></li>
             </ul>
         </div>
@@ -564,182 +997,183 @@
         <div class="hero-content">
             <h1>ITZ BISEN DESIGNS</h1>
             <p>Professional Web Design, 3D Animation & Digital Solutions</p>
-            <p>Crafting Digital Excellence with Parth Singh Bisen</p>
-            <a href="#contact" class="cta-button">Get Started</a>
+            <p>Crafting Digital Excellence with Precision</p>
+            <a href="#contact" class="cta-button">Begin Your Journey</a>
         </div>
     </section>
 
     <!-- Services Section -->
-    <section id="services" class="services">
+    <section id="services" class="elegant-section">
         <div class="container">
-            <h2 class="section-title fade-in">Our Services</h2>
-            <div class="services-grid">
-                <div class="service-card fade-in">
-                    <img class="service-icon" src="./images/web-design-logo-vector-templet_1070930-291.jpg">
+            <h2 class="section-title spiral-in">  Services</h2>
+            <div class="luxury-grid">
+                <div class="luxury-card fade-in">
+                    <div class="service-icon">🎨</div>
                     <h3>Web Design</h3>
-                    <p>Modern, responsive websites that captivate your audience and drive results. Custom designs tailored to your brand.</p>
+                    <p>Exquisite, responsive websites that captivate your audience with   elegance and drive exceptional results. Custom designs tailored to your brand's unique identity.</p>
                 </div>
-                <div class="service-card fade-in">
-                    <img class="service-icon" src="./images/images.jfif">
+                <div class="luxury-card bounce-in">
+                    <div class="service-icon">🎬</div>
                     <h3>Video Editing</h3>
-                    <p>I create engaging, fast-paced, and visually appealing reels tailored for Instagram and social media growth.</p>
+                    <p>I create engaging, cinematic, and visually stunning reels tailored for Instagram and social media growth with premium quality and artistic flair.</p>
                 </div>
-                <div class="service-card fade-in">
-                    <img class="service-icon" src="./images/data entry.png">
+                <div class="luxury-card slide-left">
+                    <div class="service-icon">📊</div>
                     <h3>Data Entry</h3>
-                    <p>Accurate and efficient data entry services to streamline your business operations and maintain data integrity.</p>
+                    <p>Precise and efficient data entry services executed with meticulous attention to detail, ensuring data integrity and streamlined business operations.</p>
                 </div>
-                <div class="service-card fade-in">
-                    <img class="service-icon" src="./images/logo.png">
+                <div class="luxury-card scale-in">
+                    <div class="service-icon">🎭</div>
                     <h3>3D Animation</h3>
-                    <p>Stunning 3D animations and visual effects that bring your ideas to life with professional quality.</p>
+                    <p>Breathtaking 3D animations and visual effects that bring your boldest ideas to life with professional quality and cinematic excellence.</p>
                 </div>
-                <div class="service-card fade-in">
-                    <img class="service-icon" src="./images/247-2473993_logo-e-portfolio-logo-png-transparent-png.png">
+                <div class="luxury-card flip-in">
+                    <div class="service-icon">💼</div>
                     <h3>Portfolio Websites</h3>
-                    <p>Showcase your work with beautiful, professional portfolio websites that make a lasting impression.</p>
+                    <p>Showcase your work with stunning, professional portfolio websites that create lasting impressions and elevate your personal brand to new heights.</p>
                 </div>
-                <div class="service-card fade-in">
-                    <img class="service-icon" src="./images/images.png">
+                <div class="luxury-card slide-right">
+                    <div class="service-icon">✨</div>
                     <h3>UI/UX Design</h3>
-                    <p>User-centered design solutions that create intuitive and engaging digital experiences.</p>
+                    <p>User-centered design solutions that create intuitive, elegant, and engaging digital experiences with a touch of luxury and sophistication.</p>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- About Section -->
-    <section id="about" class="about">
+    <section id="about" class="elegant-section">
         <div class="container">
-            <h2 class="section-title fade-in">About Me</h2>
-            <div class="about-content fade-in">
-                <div class="about-image">
+            <h2 class="section-title flip-in">About The Artisan</h2>
+            <div class="about-content">
+                <div class="profile-container slide-left">
                     <div class="profile-pic">PSB</div>
                 </div>
-                <div class="about-text">
+                <div class="about-text slide-right">
                     <h3>Parth Singh Bisen</h3>
-                    <p>I'm a passionate digital designer and developer with expertise in creating stunning web experiences, 3D animations, and user-centered designs. With ITZ BISEN DESIGNS, I bring creativity and technical excellence together to deliver
-                        solutions that exceed expectations.</p>
-                    <p>My journey in digital design has equipped me with the skills to handle everything from simple data entry tasks to complex web applications and immersive 3D animations. I believe in the power of good design to transform businesses and
-                        create meaningful connections with audiences.</p>
-                    <p>When you work with ITZ BISEN DESIGNS, you're not just getting a service provider – you're getting a creative partner dedicated to bringing your vision to life.</p>
+                    <p>I'm a passionate digital artisan and developer with expertise in creating stunning web experiences, 3D animations, and user-centered designs. With ITZ BISEN DESIGNS, I bring creativity and technical excellence together to deliver solutions that exceed expectations.</p>
+                    <p>My journey in digital design has equipped me with the skills to handle everything from precision data entry tasks to complex web applications and immersive 3D animations. I believe in the power of exceptional design to transform businesses and create meaningful connections with audiences.</p>
+                    <p>When you work with ITZ BISEN DESIGNS, you're not just getting a service provider – you're getting a creative partner dedicated to bringing your vision to life with   elegance and unmatched quality.</p>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Portfolio Section -->
-    <section id="portfolio" class="services">
+    <section id="portfolio" class="elegant-section">
         <div class="container">
-            <h2 class="section-title fade-in">Portfolio</h2>
-            <div class="services-grid">
-                <a href="https://parth520.github.io/Deep-Blue-water/">
-                    <div class="service-card fade-in">
+            <h2 class="section-title bounce-in">  Portfolio</h2>
+            <div class="luxury-grid">
+                <a href="https://parth520.github.io/Deep-Blue-water/" class="portfolio-link">
+                    <div class="luxury-card fade-in">
+                        <div class="service-icon">🌊</div>
                         <h3>Deep Blue Water</h3>
-                        <p>Deep Blue Water is an educational website dedicated to exploring the rich history and fascinating facts about the world’s oceans and seas. </p>
+                        <p>An educational website dedicated to exploring the rich history and fascinating facts about the world's oceans and seas with elegant design and immersive experience.</p>
                     </div>
                 </a>
-                <a href="https://bodymasscalculator123.netlify.app/">
-                    <div class="service-card fade-in">
+                <a href="https://bodymasscalculator123.netlify.app/" class="portfolio-link">
+                    <div class="luxury-card spiral-in">
+                        <div class="service-icon">⚖️</div>
                         <h3>BMI Calculator</h3>
-                        <p>A Website that calculates BMI</p>
+                        <p>A sophisticated web application that calculates BMI with precision, featuring an intuitive interface and elegant user experience design.</p>
                     </div>
                 </a>
-                <a href="https://parth520.github.io/Toddler-s-Care/">
-                    <div class="service-card fade-in">
-                        <h3>Toddler care</h3>
-                        <p>A website to provide parents with toddler products across the internet which are affordable and quality oriented.</p>
+                <a href="https://parth520.github.io/Toddler-s-Care/" class="portfolio-link">
+                    <div class="luxury-card slide-left">
+                        <div class="service-icon">👶</div>
+                        <h3>Toddler Care</h3>
+                        <p>A premium website providing parents with carefully curated toddler products that are both affordable and quality-oriented, designed with parental care in mind.</p>
                     </div>
                 </a>
-                <a href="https://parth520.github.io/Portfolio/homepage.html?">
-                    <div class="service-card fade-in">
+                <a href="https://parth520.github.io/Portfolio/homepage.html" class="portfolio-link">
+                    <div class="luxury-card flip-in">
+                        <div class="service-icon">🎨</div>
                         <h3>Personal Portfolio</h3>
-                        <p>Clean and elegant portfolio design for a creative professional.</p>
+                        <p>Clean, elegant, and sophisticated portfolio design for a creative professional, showcasing work with   flair and artistic excellence.</p>
                     </div>
                 </a>
-                <a href="https://youtube.com/shorts/IPPDvtw6FZo">
-                    <div class="service-card fade-in">
-                        <h3>Editing Videos For Youtube</h3>
-                        <p>Transforming raw clips into captivating reels that boost reach and audience engagement.</p>
+                <a href="https://youtube.com/shorts/IPPDvtw6FZo" class="portfolio-link">
+                    <div class="luxury-card scale-in">
+                        <div class="service-icon">🎥</div>
+                        <h3>YouTube Video Editing</h3>
+                        <p>Transforming raw clips into captivating, cinematic reels that boost reach, engagement, and audience connection through premium editing techniques.</p>
                     </div>
                 </a>
             </div>
         </div>
     </section>
 
-    <section id="testimonials" class="about">
+    <!-- Testimonials Section -->
+    <section id="testimonials" class="elegant-section">
         <div class="container">
-            <h2 class="section-title fade-in">What Clients Say</h2>
-            <div class="services-grid">
-                <div class="service-card fade-in">
-                    <p>"Itz Bisen designs does amazing work with animations and VFX. I really liked their creative edits, especially the cinematic style and Minecraft animations. Easy to work with and very professional. Definitely recommend them for anyone
-                        looking for unique and creative video projects"</p>
-                    <h4>- Shlok Jain</h4>
+            <h2 class="section-title scale-in">  Testimonials</h2>
+            <div class="luxury-grid">
+                <div class="testimonial-card slide-left">
+                    <p>Itz Bisen designs does amazing work with animations and VFX. I really liked their creative edits, especially the cinematic style and Minecraft animations. Easy to work with and very professional. Definitely recommend them for anyone looking for unique and creative video projects.</p>
+                    <h4>— Shlok Jain</h4>
                 </div>
-                <div class="service-card fade-in">
-                    <p>"With a very fine tuned UI, it's very easy go through and provided the services, it's easy to connect thanks to the design as well."</p>
-                    <h4>- Shaswat Kumar</h4>
+                <div class="testimonial-card bounce-in">
+                    <p>With a very fine tuned UI, it's very easy to go through and the provided services are exceptional. The design makes it incredibly easy to connect and navigate through everything seamlessly.</p>
+                    <h4>— Shaswat Kumar</h4>
                 </div>
-                <div class="service-card fade-in">
-                    <p>"The website has a really nice color composition and a clean texture, which makes it visually appealing. The UI/UX feels decent, but there’s still room to make it more smooth and user-friendly. Adding a bit more creativity in design
-                        elements and interactions would take it to the next level. Overall, it’s a solid foundation with good potential."</p>
-                    <h4>- Jigyashu Saxena</h4>
+                <div class="testimonial-card flip-in">
+                    <p>The website has a really nice color composition and a clean texture, which makes it visually appealing. The UI/UX feels premium and sophisticated. The creativity in design elements and interactions takes it to the next level. Overall, it's an outstanding foundation with incredible potential.</p>
+                    <h4>— Jigyashu Saxena</h4>
                 </div>
-                <div class="service-card fade-in">
-                    <p>"This website is an outstanding platform with a clean design, smooth navigation, and valuable content. It is fast, reliable, and highly professional, making the user experience excellent."</p>
-                    <h4>- Anupam Awasthi</h4>
+                <div class="testimonial-card slide-right">
+                    <p>This website is an outstanding platform with a clean design, smooth navigation, and valuable content. It is fast, reliable, and highly professional, making the user experience absolutely excellent .</p>
+                    <h4>— Anupam Awasthi</h4>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Blog / Insights Section -->
-    <section id="blog" class="about">
+    <!-- Blog Section -->
+    <section id="blog" class="elegant-section">
         <div class="container">
-            <h2 class="section-title fade-in">Insights & Tips</h2>
-            <div class="services-grid">
-                <a href="./blog on trend.html">
-                    <div class="service-card fade-in">
+            <h2 class="section-title fade-in">  Insights</h2>
+            <div class="luxury-grid">
+                <a href="./blogontrend.html" class="portfolio-link">
+                    <div class="luxury-card spiral-in">
+                        <div class="service-icon">📈</div>
                         <h3>Top 5 Web Design Trends for 2025</h3>
-                        <p>Discover what’s shaping the future of web design and how to stay ahead.</p>
+                        <p>Discover the   trends shaping the future of web design and how to stay ahead of the curve with elegant, cutting-edge solutions.</p>
                     </div>
                 </a>
-                <a href="./why ui ux matter.html">
-                    <div class="service-card fade-in">
+                <a href="./whyuiuxmatter.html" class="portfolio-link">
+                    <div class="luxury-card bounce-in">
+                        <div class="service-icon">💎</div>
                         <h3>Why UI/UX Matters</h3>
-                        <p>A great design isn’t just about looks — it’s about user experience and results.</p>
+                        <p>A great design isn't just about aesthetic beauty — it's about creating luxurious user experiences that drive results and lasting impressions.</p>
                     </div>
                 </a>
-                <a href="./3d animation in marketting.html">
-                    <div class="service-card fade-in">
+                <a href="./3danimationinmarketting.html" class="portfolio-link">
+                    <div class="luxury-card flip-in">
+                        <div class="service-icon">🎬</div>
                         <h3>3D Animation in Marketing</h3>
-                        <p>Learn how businesses use 3D visuals to increase engagement and sales.</p>
+                        <p>Learn how businesses use premium 3D visuals to increase engagement, sales, and brand prestige through   visual storytelling.</p>
                     </div>
                 </a>
             </div>
         </div>
     </section>
-
-
-
-
 
     <!-- Contact Section -->
-    <section id="contact" class="contact">
+    <section id="contact" class="elegant-section">
         <div class="container">
-            <h2 class="section-title fade-in">Get In Touch</h2>
-            <form class="contact-form fade-in" id="contactForm" action="https://api.web3forms.com/submit" method="POST">
-                <input type="hidden" name="access_key" value="ffb9da4a-dbea-4b69-aaba-81e6499db82d">
+            <h2 class="section-title slide-left">  Contact</h2>
+            <form class="contact-form scale-in" id="contactForm" action="https://api.web3forms.com/submit" method="POST">
+                <input type="hidden" name="access_key" value="74136384-973c-4482-baae-b67f2ca994c5">
                 <div class="form-group">
-                    <label for="name">Name</label>
+                    <label for="name">Your Name</label>
                     <input type="text" id="name" name="name" required>
                 </div>
                 <div class="form-group">
-                    <label for="email">Email</label>
+                    <label for="email">Email Address</label>
                     <input type="email" id="email" name="email" required>
                 </div>
                 <div class="form-group">
-                    <label for="service">Service Needed</label>
+                    <label for="service">Desired Service</label>
                     <select id="service" name="service" required>
                         <option value="">Select a service</option>
                         <option value="web-design">Web Design</option>
@@ -753,8 +1187,8 @@
                 </div>
                 
                 <div class="form-group">
-                    <label for="message">Project Details</label>
-                    <textarea id="message" name="message" rows="5" placeholder="Tell me about your project requirements..." required></textarea>
+                    <label for="message">Project Vision</label>
+                    <textarea id="message" name="message" rows="5" placeholder="Share your project requirements and vision..." required></textarea>
                 </div>
                 <button type="submit" class="submit-btn">Send Message</button>
             </form>
@@ -762,36 +1196,29 @@
     </section>
 
     <!-- Footer -->
-
-
     <footer>
         <div class="footer-container">
-
-            <!-- Contact Section -->
             <div class="footer-box">
-                <h3>📞 Contact</h3>
+                <h3>📞   Contact</h3>
                 <p><a href="https://wa.me/917067324395" target="_blank">+91 7067324395</a></p>
             </div>
 
-            <!-- Social Section -->
             <div class="footer-box">
-                <h3>🌐 Social</h3>
-                <a href="https://www.instagram.com/parth.bisen_2003?igsh=MXZ3cmF6MjdpZ3Yzbw==" target="_blank" class="social-btn instagram">
+                <h3>🌐   Social</h3>
+                <a href="https://www.instagram.com/parth.bisen_2003?igsh=MXZ3cmF6MjdpZ3Yzbw==" target="_blank" class="social-btn">
                     <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 448 512" fill="white">
-          <path d="M224,202.66A53.34,53.34,0,1,0,277.34,256,53.38,53.38,0,0,0,224,202.66Zm124.71-41a54,54,0,0,0-30.62-30.62C297.67,124.18,224,124,224,124s-73.67.18-94.09,7A54,54,0,0,0,99.29,161.62C92.47,182,92.29,256,92.29,256s.18,73.67,7,94.09a54,54,0,0,0,30.62,30.62c20.42,6.82,94.09,7,94.09,7s73.67-.18,94.09-7a54,54,0,0,0,30.62-30.62c6.82-20.42,7-94.09,7-94.09S355.53,182,348.71,161.62ZM224,338a82,82,0,1,1,82-82A82.09,82.09,0,0,1,224,338Zm85.34-148.65a19.2,19.2,0,1,1,19.2-19.2A19.21,19.21,0,0,1,309.34,189.35Z"/>
-        </svg>
+                        <path d="M224,202.66A53.34,53.34,0,1,0,277.34,256,53.38,53.38,0,0,0,224,202.66Zm124.71-41a54,54,0,0,0-30.62-30.62C297.67,124.18,224,124,224,124s-73.67.18-94.09,7A54,54,0,0,0,99.29,161.62C92.47,182,92.29,256,92.29,256s.18,73.67,7,94.09a54,54,0,0,0,30.62,30.62c20.42,6.82,94.09,7,94.09,7s73.67-.18,94.09-7a54,54,0,0,0,30.62-30.62c6.82-20.42,7-94.09,7-94.09S355.53,182,348.71,161.62ZM224,338a82,82,0,1,1,82-82A82.09,82.09,0,0,1,224,338Zm85.34-148.65a19.2,19.2,0,1,1,19.2-19.2A19.21,19.21,0,0,1,309.34,189.35Z"/>
+                    </svg>
                 </a>
             </div>
 
-            <!-- Email Section -->
             <div class="footer-box">
-                <h3>📧 Email</h3>
+                <h3>📧   Email</h3>
                 <p><a href="mailto:itzbisendesigns@gmail.com">itzbisendesigns@gmail.com</a></p>
             </div>
-
         </div>
 
-        <p class="copy">© 2025 ITZ BISEN DESIGN | Designed with ❤️</p>
+        <p class="copy">© 2025 ITZ BISEN DESIGN | Crafted with   Excellence ♔</p>
     </footer>
 
     <script>
@@ -809,7 +1236,7 @@
             });
         });
 
-        // Navbar scroll effect
+        // Enhanced navbar scroll effect
         window.addEventListener('scroll', () => {
             const navbar = document.getElementById('navbar');
             if (window.scrollY > 50) {
@@ -819,39 +1246,120 @@
             }
         });
 
-        // Scroll animations
-        const observerOptions = {
-            threshold: 0.1,
-            rootMargin: '0px 0px -50px 0px'
-        };
-
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
+        // Advanced scroll animations with enter/exit effects
+        const advancedObserver = new IntersectionObserver((entries) => {
+            entries.forEach((entry, index) => {
+                const element = entry.target;
+                
                 if (entry.isIntersecting) {
-                    entry.target.classList.add('visible');
+                    // Element is entering the viewport
+                    setTimeout(() => {
+                        element.classList.remove('exit');
+                        element.classList.add('visible');
+                    }, index * 100);
+                } else {
+                    // Element is leaving the viewport
+                    element.classList.remove('visible');
+                    element.classList.add('exit');
                 }
             });
-        }, observerOptions);
-
-        document.querySelectorAll('.fade-in').forEach(el => {
-            observer.observe(el);
+        }, {
+            threshold: 0.15,
+            rootMargin: '50px 0px -100px 0px'
         });
 
+        // Observe all animated elements
+        const animatedElements = document.querySelectorAll(
+            '.fade-in, .slide-left, .slide-right, .scale-in, .flip-in, .bounce-in, .spiral-in'
+        );
+        
+        animatedElements.forEach(el => {
+            advancedObserver.observe(el);
+        });
 
+        // Special observer for section titles with different behavior
+        const titleObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                const element = entry.target;
+                
+                if (entry.isIntersecting) {
+                    element.classList.remove('exit');
+                    element.classList.add('visible');
+                } else if (entry.boundingClientRect.top > 0) {
+                    // Only add exit class if scrolling up
+                    element.classList.remove('visible');
+                    element.classList.add('exit');
+                }
+            });
+        }, {
+            threshold: 0.3,
+            rootMargin: '0px 0px -50px 0px'
+        });
 
-        // Add some interactive effects
-        document.querySelectorAll('.service-card').forEach(card => {
+        // Observe section titles
+        document.querySelectorAll('.section-title').forEach(el => {
+            titleObserver.observe(el);
+        });
+
+        // Enhanced card animations with magnetic effect
+        document.querySelectorAll('.luxury-card').forEach(card => {
+            card.addEventListener('mousemove', (e) => {
+                const rect = card.getBoundingClientRect();
+                const x = e.clientX - rect.left;
+                const y = e.clientY - rect.top;
+                
+                const centerX = rect.width / 2;
+                const centerY = rect.height / 2;
+                
+                const rotateX = (y - centerY) / 10;
+                const rotateY = (centerX - x) / 10;
+                
+                card.style.transform = `
+                    perspective(1000px) 
+                    rotateX(${rotateX}deg) 
+                    rotateY(${rotateY}deg) 
+                    translateY(-20px) 
+                    scale(1.05)
+                `;
+            });
+
+            card.addEventListener('mouseleave', () => {
+                card.style.transform = 'perspective(1000px) rotateX(0deg) rotateY(0deg) translateY(0) scale(1)';
+            });
+        });
+
+        // Intersection observer for navbar background
+        const heroSection = document.querySelector('.hero');
+        const navbarObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                const navbar = document.getElementById('navbar');
+                if (!entry.isIntersecting) {
+                    navbar.classList.add('scrolled');
+                } else {
+                    navbar.classList.remove('scrolled');
+                }
+            });
+        }, {
+            threshold: 0.1
+        });
+
+        if (heroSection) {
+            navbarObserver.observe(heroSection);
+        }
+
+        // Enhanced card hover effects
+        document.querySelectorAll('.luxury-card').forEach(card => {
             card.addEventListener('mouseover', function() {
-                this.style.transform = 'translateY(-15px) scale(1.02)';
+                this.style.transform = 'translateY(-25px) rotateY(8deg) scale(1.02)';
             });
 
             card.addEventListener('mouseout', function() {
-                this.style.transform = 'translateY(-10px) scale(1)';
+                this.style.transform = 'translateY(0) rotateY(0deg) scale(1)';
             });
         });
 
-        // Typing effect for hero text
-        function typeWriter(element, text, speed = 50) {
+        // Royal typing effect for hero text
+        function royalTypeWriter(element, text, speed = 80) {
             let i = 0;
             element.innerHTML = '';
 
@@ -860,74 +1368,91 @@
                     element.innerHTML += text.charAt(i);
                     i++;
                     setTimeout(type, speed);
+                } else {
+                    // Add blinking cursor effect after typing
+                    element.style.borderRight = '3px solid var(--gold)';
+                    setInterval(() => {
+                        element.style.borderRight = element.style.borderRight === '3px solid var(--gold)' 
+                            ? '3px solid transparent' 
+                            : '3px solid var(--gold)';
+                    }, 500);
                 }
             }
             type();
         }
 
-        // Initialize typing effect after page load
+        // Initialize royal typing effect
         window.addEventListener('load', () => {
             const heroTitle = document.querySelector('.hero h1');
             if (heroTitle) {
                 const originalText = heroTitle.textContent;
-                typeWriter(heroTitle, originalText, 100);
+                setTimeout(() => {
+                    royalTypeWriter(heroTitle, originalText, 120);
+                }, 1000);
             }
         });
 
-        // Get modal elements
-        const modal = document.getElementById("planModal");
-        const closeBtn = document.querySelector(".close");
-        const planForm = document.getElementById("planForm");
-        const planInput = document.getElementById("planInput");
-        const planTitle = document.getElementById("selectedPlan");
-        const planSuccess = document.getElementById("planSuccess");
+        // Parallax effect for floating elements
+        window.addEventListener('scroll', () => {
+            const scrolled = window.pageYOffset;
+            const parallaxElements = document.querySelectorAll('.floating-element');
+            
+            parallaxElements.forEach((element, index) => {
+                const speed = 0.5 + (index * 0.1);
+                element.style.transform = `translateY(${scrolled * speed}px)`;
+            });
+        });
 
-        // Open modal when clicking pricing buttons
-        document.querySelectorAll(".pricing-card .cta-button").forEach(btn => {
-            btn.addEventListener("click", function(e) {
+        // Enhanced form submission with royal feedback
+        const contactForm = document.getElementById('contactForm');
+        if (contactForm) {
+            contactForm.addEventListener('submit', async function(e) {
                 e.preventDefault();
-                const planName = this.closest(".pricing-card").querySelector("h3").innerText;
-                planTitle.textContent = "Selected Plan: " + planName;
-                planInput.value = planName;
-                planForm.style.display = "block";
-                planSuccess.style.display = "none";
-                modal.style.display = "flex";
+                
+                const submitBtn = this.querySelector('.submit-btn');
+                const originalText = submitBtn.textContent;
+                
+                submitBtn.textContent = 'Sending Royal Message...';
+                submitBtn.disabled = true;
+                
+                try {
+                    const formData = new FormData(this);
+                    const response = await fetch(this.action, {
+                        method: 'POST',
+                        body: formData
+                    });
+                    
+                    if (response.ok) {
+                        submitBtn.textContent = '✨ Message Sent Successfully!';
+                        submitBtn.style.background = 'linear-gradient(45deg, #10B981, var(--gold))';
+                        setTimeout(() => {
+                            this.reset();
+                            submitBtn.textContent = originalText;
+                            submitBtn.disabled = false;
+                            submitBtn.style.background = 'linear-gradient(45deg, var(--royal-purple), var(--gold))';
+                        }, 3000);
+                    } else {
+                        throw new Error('Network response was not ok');
+                    }
+                } catch (error) {
+                    submitBtn.textContent = '❌ Please try again';
+                    submitBtn.style.background = 'linear-gradient(45deg, #EF4444, var(--gold))';
+                    setTimeout(() => {
+                        submitBtn.textContent = originalText;
+                        submitBtn.disabled = false;
+                        submitBtn.style.background = 'linear-gradient(45deg, var(--royal-purple), var(--gold))';
+                    }, 3000);
+                }
             });
-        });
+        }
 
-        // Close modal
-        closeBtn.onclick = () => {
-            modal.style.display = "none";
-        };
-        window.onclick = (e) => {
-            if (e.target == modal) modal.style.display = "none";
-        };
-
-        // Handle form submission with AJAX (so we can show success message without redirect)
-        planForm.addEventListener("submit", async function(e) {
-            e.preventDefault();
-
-            const formData = new FormData(planForm);
-            const response = await fetch(planForm.action, {
-                method: "POST",
-                body: formData
-            });
-
-            if (response.ok) {
-                planForm.style.display = "none";
-                planSuccess.style.display = "block";
-            } else {
-                alert("❌ Something went wrong. Please try again.");
-            }
-        });
-
-
-        // Counter animation
-        function animateCounter(id, end, duration) {
+        // Royal counter animation
+        function royalCounter(id, end, duration) {
             let start = 0;
             const element = document.getElementById(id);
-            const increment = end / (duration / 20);
-
+            if (!element) return;
+            
+            const increment = end / (duration / 30);
             const interval = setInterval(() => {
                 start += increment;
                 if (start >= end) {
@@ -935,16 +1460,67 @@
                     clearInterval(interval);
                 }
                 element.textContent = Math.floor(start) + "+";
-            }, 20);
+            }, 30);
         }
 
+        // Initialize royal counters
         window.addEventListener("load", () => {
-            animateCounter("counter1", 25, 2000);
-            animateCounter("counter2", 15, 2000);
-            animateCounter("counter3", 3, 2000);
+            setTimeout(() => {
+                royalCounter("counter1", 25, 2500);
+                royalCounter("counter2", 15, 2500);
+                royalCounter("counter3", 3, 2500);
+            }, 1000);
         });
+
+        // Add royal sparkle effect on mouse movement
+        document.addEventListener('mousemove', (e) => {
+            if (Math.random() > 0.95) {
+                createSparkle(e.clientX, e.clientY);
+            }
+        });
+
+        function createSparkle(x, y) {
+            const sparkle = document.createElement('div');
+            sparkle.style.position = 'fixed';
+            sparkle.style.left = x + 'px';
+            sparkle.style.top = y + 'px';
+            sparkle.style.width = '4px';
+            sparkle.style.height = '4px';
+            sparkle.style.background = 'var(--gold)';
+            sparkle.style.borderRadius = '50%';
+            sparkle.style.pointerEvents = 'none';
+            sparkle.style.zIndex = '9999';
+            sparkle.style.animation = 'sparkle 1s ease-out forwards';
+            
+            document.body.appendChild(sparkle);
+            
+            setTimeout(() => {
+                document.body.removeChild(sparkle);
+            }, 1000);
+        }
+
+        // Add sparkle animation
+        const sparkleCSS = `
+            @keyframes sparkle {
+                0% {
+                    transform: scale(0) rotate(0deg);
+                    opacity: 1;
+                }
+                50% {
+                    transform: scale(1) rotate(180deg);
+                    opacity: 1;
+                }
+                100% {
+                    transform: scale(0) rotate(360deg);
+                    opacity: 0;
+                }
+            }
+        `;
+        
+        const style = document.createElement('style');
+        style.textContent = sparkleCSS;
+        document.head.appendChild(style);
     </script>
 </body>
 
 </html>
-
